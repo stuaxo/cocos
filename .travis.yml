@@ -5,10 +5,20 @@
 #  - sudo apt-get --reinstall install -qq language-pack-en language-pack-es
 
 language: python
-python:
-  - "2.6"
-  - "2.7"
-  - "3.3"
+
+matrix:
+  include:
+    - python:
+      - "2.6"
+      - "2.7"
+      - "3.3"
+      - "3.4"
+      - "3.5"
+      - "pypy2.7-5.8.0"
+cache:
+  - pip
+  - directories:
+    - $HOME/.pyenv_cache
 
 env:
     - cocos_utest=1
